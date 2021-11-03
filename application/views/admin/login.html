@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login - SIPP KPID JAWARA</title>
-  <link href="{{base_url}}assets/img/logo/favicon.ico" rel="icon">
+  <title>Login - QLab</title>
+  <link href="{{base_url}}assets/img/logo/AdminLTELogo.png" rel="icon">
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -89,7 +89,7 @@
   border-bottom-right-radius:2rem;
   border-top-right-radius:2rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-  background: #001f3f;
+  background: #343a40;
   width:60%;
 }
 
@@ -123,7 +123,7 @@
       <div class="row">
         <div class="brand-wrapper">
           <a href="{{base_url}}">
-            <img src="{{base_url}}assets/img/logo/SIPPIII.png" alt="logo" class="logo logo-login">
+            <!-- <img src="{{base_url}}assets/img/logo/AdminLTELogo.png" alt="logo" class="logo logo-login"> -->
           </a>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
@@ -180,21 +180,21 @@
                 <div class="input-group">
                   <input id="password_regis" name="password_regis" type="password" class="form-control" placeholder="Masukan Password">
                   <div class="input-group-append" style="margin-right: -45px;">
-                    <div class="btn btn-warning" id="btn-view-pass" style="width: 50%;">
+                    <div class="btn btn-warning" id="btn-view-pass" style="width: 50%;background: #007aff">
                       <img src="http://simpleicon.com/wp-content/uploads/eye2-64x64.png" style="width: 100%;"></i>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="form-group mb-4">
+              <!-- <div class="form-group mb-4">
                   <label>Kota/ Kabupaten</label>
                   <select id="kota_kab" name="kota_kab_regis" class="form-control select2" style="width: 100%;">
                   </select>
-              </div>
-              <div class="form-group">
+              </div> -->
+              <!-- <div class="form-group">
                 <label for="email">No. Telepon</label>
                 <input type="text" name="telp_regis" id="telp_regis" class="form-control" placeholder="masukan nomor telepon">
-              </div>
+              </div> -->
               <div class="form-group">
                 <label for="email">E-mail</label>
                 <input type="email" name="email_regis" id="email_regis" class="form-control" placeholder="masukan email">
@@ -234,7 +234,7 @@
       $('#register-form').hide();
     });
 
-    loadkota();
+    // loadkota();
     $( "#btn-view-pass" ).mousedown(function(e) {
         $('#password_regis').prop('type', 'text');
     });
