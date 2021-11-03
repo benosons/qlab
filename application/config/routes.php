@@ -1,0 +1,64 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+| -------------------------------------------------------------------------
+| URI ROUTING
+| -------------------------------------------------------------------------
+| This file lets you re-map URI requests to specific controller functions.
+|
+| Typically there is a one-to-one relationship between a URL string
+| and its corresponding controller class/method. The segments in a
+| URL normally follow this pattern:
+|
+|	example.com/class/method/id/
+|
+| In some instances, however, you may want to remap this relationship
+| so that a different class/function is called than the one
+| corresponding to the URL.
+|
+| Please see the user guide for complete details:
+|
+|	https://codeigniter.com/user_guide/general/routing.html
+|
+| -------------------------------------------------------------------------
+| RESERVED ROUTES
+| -------------------------------------------------------------------------
+|
+| There are three reserved routes:
+|
+|	$route['default_controller'] = 'welcome';
+|
+| This route indicates which controller class should be loaded if the
+| URI contains no data. In the above example, the "welcome" class
+| would be loaded.
+|
+|	$route['404_override'] = 'errors/page_missing';
+|
+| This route will tell the Router which controller/method to use if those
+| provided in the URL cannot be matched to a valid route.
+|
+|	$route['translate_uri_dashes'] = FALSE;
+|
+| This is not exactly a route, but allows you to automatically route
+| controller and method names that contain dashes. '-' isn't a valid
+| class or method name character, so it requires translation.
+| When you set this option to TRUE, it will replace ALL dashes in the
+| controller and method URI segments.
+|
+| Examples:	my-controller/index	-> my_controller/index
+|		my-controller/my-method	-> my_controller/my_method
+*/
+$route['default_controller'] = 'auth';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
+
+
+
+$route['^(logout|loginAdmin|Admin|register|cekusername)(/:any)?$'] = "auth/$0";
+$route['^(dashboard|saveUser|listuser|updateUser|formUser|listDataUser|deleteUser|dataDetailUser|loadkota|hitungAll|profile|loaduser|infodata|listdatabanner|listdatabanneruser|loadsetting|simpansetting|savebanner|updatebanner|deletebanner|updateprofile)(/:any)?$'] = "sys/$0";
+$route['^(listaduan|listDataAduanGlobal|listDataAduan|cekBalasan|saveAduan|saveBalasan|updateAduan|hitungStatus|hitungPesanBaru|closeAduan|new|reply|close)(/:any)?$'] = "aduan/$0";
+$route['^(listtelevisi|listradio|listDataSiaran|loadsiaran|loadkota_lembaga|loadLP|updateLembaga|lembaga|saveLembaga)(/:any)?$'] = "siaran/$0";
+$route['^(listvideo|addvideo|listDataVideo|deletevideo|updatevideo)(/:any)?$'] = "video/$0";
+$route['editlembaga'] = "siaran/editlembaga";
+$route['listaduan'] = "aduan/listaduan";

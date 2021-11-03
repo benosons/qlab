@@ -1,0 +1,179 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+    <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Form Pangan</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <form role="form" method="post" id="myForm">
+        <input type="hidden" name="id" id="id" value="{{data.id}}">
+        <!-- Fisik -->
+        <div class="card mb-3">
+          <div class="card-header">
+            Form Pangan
+            </div>
+
+          <div class="card-body"> 
+                <div class="form-row">
+                    <div class="col">
+                        <label class="control-label">Nama</label>
+                        <input type="text" class="form-control" name="nama" id="nama" value="{{data.nama}}">
+                        <span class="help-block"></span>
+                    </div>
+                </div>       
+                <br> 
+                <div class="form-row">
+                    <div class="col">
+                        <label class="control-label">Tanggal</label>
+                        <input type="text" class="form-control"  name="tgl" id="tgl" value="{{data.tgl}}">
+                        <span class="help-block"></span>
+                    </div>
+                </div>        
+                <br>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="control-label">Jenis Pangan</label>
+                        <input type="text" class="form-control" name="jenisPangan" id="jenisPangan" value="{{data.jenisPangan}}">
+                        <span class="help-block"></span>
+                    </div>
+                </div>        
+                <br>
+                <div class="form-row">
+                    <div class="col">
+                        <button type="button" id="btnSave" onclick="saveData()" class="btn btn-primary">Simpan</button>
+                        <button type="button" id="btnUpdate" onclick="updateData()" class="btn btn-success">Update</button>
+                        <span class="help-block"></span>
+                    </div>
+                </div>             
+            </div>
+            
+          <div class="card-footer small text-muted">SIM PANTAS</div>
+        </div>
+
+        </form>
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © SIEVALAPOR KIPER</span>
+          </div>
+        </div>
+      </footer>
+{% endblock %}
+{% block js %}
+<script>
+$(document).ready(function() {
+        $('#btnUpdate').hide();
+        $('#btnSave').show();
+
+        var nip = document.getElementById('id').value;
+        if(nip != "")
+        {
+            $('#btnUpdate').show();
+            $('#btnSave').hide();
+        }
+
+        $('#tgl').datepicker({
+                autoclose: true,
+                format: "yyyy-mm-dd",
+                todayHighlight: true,
+                orientation: "top auto",
+                todayBtn: true,
+                todayHighlight: true,  
+            });
+    });  
+
+    
+    function saveData()
+    {
+        $("#notif").empty();
+        $('#btnSave').text('Saving...'); //change button text
+        $('#btnSave').attr('disabled',true); //set button disable 
+        var status = true;
+        var url = "{{ base_url }}savePangan";
+
+        var formData = new FormData($('#myForm')[0]);
+    
+        if (status==true) {
+            // ajax adding data to database
+            $.ajax({
+                  url : url,
+                  type: "POST",
+                  data: $('#myForm').serialize(),
+                  dataType: "JSON",
+                success: function(data)
+                {
+                    notif('success', 'SUKSES! Data berhasil disimpan'); 
+                    window.location = "{{ base_url }}listPangan";
+                    
+                  
+                    $('#btnSave').text('Loading..'); //change button text
+                    $('#btnSave').attr('disabled',false); //set button enable 
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    notif('warning', 'PERHATIAN! Data Gagal Disimpan');
+                    $('#btnSave').text('Simpan'); //change button text
+                    $('#btnSave').attr('disabled',false); //set button enable 
+
+                }
+            });
+        }
+        else
+        {
+            $('#btnSave').text('Simpan'); //change button text
+            $('#btnSave').attr('disabled',false); //set button enable 
+        }
+        
+    }
+
+    function updateData()
+    {
+        $("#notif").empty();
+        $('#btnUpdate').text('Updating...'); //change button text
+        $('#btnUpdate').attr('disabled',true); //set button disable 
+        var status = true;
+        var url = "{{ base_url }}updatePangan";
+    
+        if (status==true) {
+            // ajax adding data to database
+            $.ajax({
+                  url : url,
+                  type: "POST",
+                  data: $('#myForm').serialize(),
+                  dataType: "JSON",
+                success: function(data)
+                {
+                    notif('success', 'SUKSES! Data berhasil disimpan'); 
+                    window.location = "{{ base_url }}listPangan";
+                  
+                    $('#btnUpdate').text('Loading..'); //change button text
+                    $('#btnUpdate').attr('disabled',false); //set button enable 
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    notif('warning', 'PERHATIAN! Data Gagal Diedit');
+                    $('#btnUpdate').text('Update'); //change button text
+                    $('#btnUpdate').attr('disabled',false); //set button enable 
+
+                }
+            });
+        }
+        else
+        {
+            $('#btnUpdate').text('Update'); //change button text
+            $('#btnUpdate').attr('disabled',false); //set button enable 
+        }
+        
+    }
+
+    
+</script>
+    {% endblock %}

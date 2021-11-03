@@ -1,0 +1,290 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Tambah Lembaga Penyiaran&nbsp;{{lembaga_type}}</h1>
+          <input hidden id="lembaga_id" value="{{lembaga_id}}">
+          <input hidden id="lembaga_type" value="{{lembaga_type}}">
+          <input hidden id="param" value="{{lembaga_type}}">
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Penyiaran</a></li>
+            <li class="breadcrumb-item active">List&nbsp;{{lembaga_type}}</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+
+        <!-- Profile Image -->
+        <div class="card card-danger card-outline">
+          <div class="card-body box-profile">
+            <div class="text-center">
+              <img id="blah1" class="profile-user-img img-fluid img-circle"
+                  src="assets/dokumen/gambar/user/default.jpg"
+                  alt="User profile picture">
+                  <canvas hidden id="myCanvas1"/>
+                </div>
+
+                <p class="text-muted text-center"></p>
+                <!-- <a href="#" class="btn btn-primary btn-block"><b>Upload</b></a> -->
+                <div class="custom-file" style="margin-bottom: 10px;margin-top: 10px;">
+                  <input type="file" class="custom-file-input" id="logo-lembaga" name="lembaga-input">
+                  <label class="custom-file-label" for="logo-lembaga">Pilih Logo</label>
+                </div>
+              </div>
+
+          <div class="card-body box-profile">
+            <div class="text-center">
+              <img style="border-radius: 0%;" id="blah2" class="profile-user-img img-fluid img-circle"
+                  src="assets/dokumen/gambar/user/default.jpg"
+                  alt="User profile picture">
+                  <canvas hidden id="myCanvas2"/>
+                </div>
+
+                <p class="text-muted text-center"></p>
+                <!-- <a href="#" class="btn btn-primary btn-block"><b>Upload</b></a> -->
+                <div class="custom-file" style="margin-bottom: 10px;margin-top: 10px;">
+                  <input type="file" class="custom-file-input" id="foto-lembaga" name="lembaga-input">
+                  <label class="custom-file-label" for="foto-lembaga">Pilih Foto</label>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-danger card-outline">
+              <!-- /.card-header -->
+              <div class="card-body">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-5 col-form-label"><i class="fas fa-fax mr-1"></i> Fax</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="fax" placeholder="Fax">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-12 col-form-label"><i class="fas fa-globe mr-1"></i> Website</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="website" placeholder="website">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-12 col-form-label"><i class="fas fa-satellite mr-1"></i> Frekuensi</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="frekuensi" placeholder="Frekuensi">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-12 col-form-label"><i class="fas fa-stream mr-1"></i> Streaming</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="stream" placeholder="Streaming">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputName" class="col-sm-12 col-form-label"><i class="fas fa-map-marker-alt mr-1"></i> Koordinat</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" id="koordinat" placeholder="Koordinat"></input>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-12 col-form-label"><i class="fab fa-instagram mr-1"></i> Instagram</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="instagram" placeholder="instagram"></input>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-12 col-form-label"><i class="fab fa-twitter mr-1"></i> Twitter</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="twitter" placeholder="twitter"></input>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-8">
+            <div class="card card-danger card-outline">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-5 col-form-label">Kode</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="kode" placeholder="Kode">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-5 col-form-label">Nomor IPP</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="no-ipp" placeholder="Nomor IPP">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group ">
+                      <label for="inputName" class="col-sm-5 col-form-label">Nama Badan Hukum</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="nama-badan" placeholder="Nama Badan Hukum">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group ">
+                      <label for="inputName" class="col-sm-5 col-form-label">Nama di udara</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="nama-udara" placeholder="Nama di udara">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group ">
+                      <label for="inputName" class="col-sm-5 col-form-label">Pimpinan</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="pimpinan" placeholder="pimpinan">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group ">
+                      <label for="inputName" class="col-sm-5 col-form-label">Jenis LP</label>
+                      <div class="col-sm-12">
+                        <select id="jenisLP" class="form-control select2"></select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-12 col-form-label"> Nomor Telepon</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="no-tlp" placeholder="Nomor Telepon">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-12 col-form-label"> Email</label>
+                      <div class="col-sm-12">
+                        <input type="email" class="form-control" id="email" placeholder="Email"></input>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group ">
+                      <label for="inputName" class="col-sm-5 col-form-label">Kota</label>
+                      <div class="col-sm-12">
+                        <select id="kota" class="form-control select2"></select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group ">
+                      <label for="inputName" class="col-sm-5 col-form-label">Wilayah Layanan</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="wilayah" placeholder="Wilayah Layanan">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group ">
+                      <label for="inputName" class="col-sm-5 col-form-label">Alamat</label>
+                      <div class="col-sm-12">
+                        <textarea type="text" class="form-control" id="alamat" placeholder="Alamat"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-5 col-form-label">Kontak</label>
+                      <div class="col-sm-12">
+                        <textarea type="text" class="form-control" id="kontak" placeholder="Kontak"></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div><!-- /.card-body -->
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group" style="margin-bottom: 11px;margin-top: 10px;">
+                      <div class="offset-md-5 col-md-12">
+                        <button type="submit" class="btn btn-success" id="simpan-lembaga-btn"><i class="fas fa-check"></i> Simpan</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+<!-- /.content -->
+
+{% endblock %}
+{% block js %}
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+<script type="text/javascript" src="{{base_url}}assets/js/action/newsiaran.js"></script>
+<script type="text/javascript" src="{{base_url}}assets/lte/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+{% endblock %}

@@ -1,0 +1,177 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+    <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Form Management User</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            Form Management User
+            </div>
+
+        <form role="form" method="post" id="myForm">
+          <div class="card-body">
+            <form role="form" method="post" id="myForm">
+                <input type="hidden" name="id" id="id" value="{{data.id}}">
+                <div class="form-row">
+                    <div class="col">
+                        <label class="control-label">Kota / Kabupaten</label>
+                        <select class="form-control" name="kotaKab" id="kotaKab" value="{{data.kotaKab}}">
+                            <option value="">--- Pilih ---</option>
+                            {% for kotaKab in kotaKab %}
+                            <option value="{{kotaKab.nama}}" {% if data.kotaKab == kotaKab.nama %} selected="" {% endif %}>{{kotaKab.nama}}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="help-block"></span>
+                    </div>
+                </div> 
+                <br>  
+                <div class="form-row">
+                    <div class="col">
+                        <label class="control-label">Username</label>
+                        <input type="text" class="form-control" placeholder="Username" name="username" id="username" value="{{data.username}}">
+                        <span class="help-block"></span>
+                    </div>
+                </div>   
+
+                <br>  
+                <div class="form-row">
+                    <div class="col">
+                        <label class="control-label">Password</label>
+                        <input type="text" class="form-control" placeholder="Password" name="password" id="password" value="{{data.password}}">
+                        <span class="help-block"></span>
+                    </div>
+                </div>           
+
+                <br>  
+                <div class="form-row">
+                    <div class="col">
+                        <button type="button" id="btnSave" onclick="saveData()" class="btn btn-primary">Simpan</button>
+                        <button type="button" id="btnUpdate" onclick="updateData()" class="btn btn-success">Update</button>
+                        <span class="help-block"></span>
+                    </div>
+                </div>             
+            </div>
+            
+           </form>
+          <div class="card-footer small text-muted">SIM PANTAS</div>
+        </div>
+
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © SIM PANTAS</span>
+          </div>
+        </div>
+      </footer>
+{% endblock %}
+{% block js %}
+<script>
+$(document).ready(function() {
+        $('#btnUpdate').hide();
+        $('#btnSave').show();
+
+        var nip = document.getElementById('id').value;
+        if(nip != "")
+        {
+            $('#btnUpdate').show();
+            $('#btnSave').hide();
+        }
+    
+    });  
+
+    function saveData()
+    {
+        $("#notif").empty();
+        $('#btnSave').text('Saving...'); //change button text
+        $('#btnSave').attr('disabled',true); //set button disable 
+        var status = true;
+        var url = "{{ base_url }}saveUser";
+
+        var formData = new FormData($('#myForm')[0]);
+    
+        if (status==true) {
+            // ajax adding data to database
+            $.ajax({
+                  url : url,
+                  type: "POST",
+                  data: $('#myForm').serialize(),
+                  dataType: "JSON",
+                success: function(data)
+                {
+                    notif('success', 'SUKSES! Data berhasil disimpan'); 
+                    window.location = "{{ base_url }}listUser";
+                    
+                  
+                    $('#btnSave').text('Loading..'); //change button text
+                    $('#btnSave').attr('disabled',false); //set button enable 
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    notif('warning', 'PERHATIAN! Data Gagal Disimpan');
+                    $('#btnSave').text('Simpan'); //change button text
+                    $('#btnSave').attr('disabled',false); //set button enable 
+
+                }
+            });
+        }
+        else
+        {
+            $('#btnSave').text('Simpan'); //change button text
+            $('#btnSave').attr('disabled',false); //set button enable 
+        }
+        
+    }
+
+    function updateData()
+    {
+        $("#notif").empty();
+        $('#btnUpdate').text('Updating...'); //change button text
+        $('#btnUpdate').attr('disabled',true); //set button disable 
+        var status = true;
+        var url = "{{ base_url }}updateUser";
+    
+        if (status==true) {
+            // ajax adding data to database
+            $.ajax({
+                  url : url,
+                  type: "POST",
+                  data: $('#myForm').serialize(),
+                  dataType: "JSON",
+                success: function(data)
+                {
+                    notif('success', 'SUKSES! Data berhasil disimpan'); 
+                    window.location = "{{ base_url }}listUser";
+                  
+                    $('#btnUpdate').text('Loading..'); //change button text
+                    $('#btnUpdate').attr('disabled',false); //set button enable 
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    notif('warning', 'PERHATIAN! Data Gagal Diedit');
+                    $('#btnUpdate').text('Update'); //change button text
+                    $('#btnUpdate').attr('disabled',false); //set button enable 
+
+                }
+            });
+        }
+        else
+        {
+            $('#btnUpdate').text('Update'); //change button text
+            $('#btnUpdate').attr('disabled',false); //set button enable 
+        }
+        
+    }
+
+    
+</script>
+    {% endblock %}

@@ -1,0 +1,54 @@
+
+    <!-- Main sidebar -->
+			<div class="sidebar sidebar-main sidebar-default sidebar-fixed">
+				<div class="sidebar-content">
+
+					<!-- User menu -->
+					<div class="sidebar-user-material">
+						<div class="category-content">
+							<div class="sidebar-user-material-content">
+								<a href="#"><img src="{{base_url}}assets/ltr/images/placeholder.jpg" class="img-circle img-responsive" alt=""></a>
+								<h6 style="color:black;">Kang Admin</h6>
+								<span class="text-size-small" style="color:black;">Bandung, Indonesia</span>
+							</div>
+														
+							<div class="sidebar-user-material-menu">
+								<a href="#user-nav" data-toggle="collapse"><span style="color:black;">My account</span> <i class="caret"></i></a>
+							</div>
+						</div>
+						
+						<div class="navigation-wrapper collapse" id="user-nav">
+							<ul class="navigation">
+								<li><a href="#"><i class="icon-user-plus"></i> <span>My profile</span></a></li>
+								<li><a href="#"><i class="icon-cog5"></i> <span>Account settings</span></a></li>
+								<li id="logout-btn"><a href="{{base_url}}logout"><i class="icon-switch2"></i> <span>Logout</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								<!-- Main -->
+                <li class="active"><a href="{{base_url}}Dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                {% if logs.kategori == "superAdmin" %}
+								<li><a href="{{base_url}}listPangan"><i class=" icon-list3"></i> <span>Pangan Berkualitas <span class="label bg-blue-400">1.6</span></span></a></li>
+                
+                <li><a href="{{base_url}}listUser"><i class="icon-people"></i> <span>Management User</span></a></li>
+                {% else %}
+				{% endif %}
+				<li><a data-toggle="modal" data-target="#modal_theme_primary"><i class="icon-info22"></i> <span>Tentang Aplikasi</span></a></li>
+
+								<!-- /main -->
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->

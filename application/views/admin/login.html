@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login - SIPP KPID JAWARA</title>
+  <link href="{{base_url}}assets/img/logo/favicon.ico" rel="icon">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/login/css/login.css">
+  <link rel="stylesheet" href="{{base_url}}assets/lte/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{{base_url}}assets/lte/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="{{base_url}}assets/lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+  <style>
+    .btn {
+      display: inline-block;
+      font-weight: 400;
+      color: #212529;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: transparent;
+      border: 1px solid transparent;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: .25rem;
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-info {
+    color: #fff;
+    background-color: #ffffff;
+    border-color: #dadada;
+    box-shadow: none;
+}
+.input-group-append {
+    margin-left: -1px;
+}
+.input-group-append, .input-group-prepend {
+    display: -ms-flexbox;
+    display: flex;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}
+.fab, .far {
+    font-weight: 400;
+}
+.fa, .fab, .fad, .fal, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+.fa-eye:before {
+    content: "\f06e";
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.input-group-append .btn, .input-group-prepend .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.warning {
+  box-shadow: 0 0 0 0.2rem rgb(255 0 0 / 25%)!important;
+}
+
+.select2-container .select2-selection--single {
+    height: 100%!important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 100%!important;
+}
+
+.card-signin {
+  border: 0;
+  border-bottom-right-radius:2rem;
+  border-top-right-radius:2rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  background: #001f3f;
+  width:60%;
+}
+
+.logo-login {
+  height:100px!important;
+  position: absolute;
+  z-index: 1;
+}
+
+@media (max-width: 575px) {
+  .card-signin {
+    width:100%;
+  }
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="container-fluid" style="background:url('assets/login/images/big-bg.png')">
+
+      <div class="row">
+        <div class="brand-wrapper">
+          <a href="{{base_url}}">
+            <img src="{{base_url}}assets/img/logo/SIPPIII.png" alt="logo" class="logo logo-login">
+          </a>
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+
+                <div class="login-img">
+
+                  <img src="assets/login/images/mic.png" alt="login image" class="" style="padding: 15% 9px 18px 46%;">
+                </div>
+
+        </div>
+
+        <div class="col-sm-6 login-section-wrapper" style="padding-left: 0px;background-color: #fff0;">
+          <!-- <div class="brand-wrapper">
+            <a href="{{base_url}}">
+              <img src="{{base_url}}assets/img/logo/SIPPIII.png" alt="logo" class="logo" style="height:100px;">
+            </a>
+          </div> -->
+          <div class="card card-signin my-5">
+            <div class="card-body col-md-12">
+          <div class="login-wrapper my-auto" id="login-form" style="width: 100%;">
+            <h1 class="login-title" style="color: #fff;">Log in</h1>
+
+            <form method="post" action="{{ base_url }}auth/">
+              <div class="form-group">
+                <label for="email">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+              </div>
+              <div class="form-group mb-4">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="masukan passsword">
+              </div>
+              <input hidden id="message" value="{{message}}"/>
+              <input hidden id="code" value="{{code}}"/>
+
+              <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Login">
+            </form>
+            <!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
+            <p class="login-wrapper-footer-text" style="color: #fff;">Belum punya akun? <a href="#!" id ="goto-register" class="text-reset"><i>Register</i></a></p>
+          </div>
+          <div class="login-wrapper my-auto" id="register-form" style="display:none;">
+            <h1 class="login-title" style="color: #fff;">Register user baru</h1>
+            <form method="post" action="{{ base_url }}register/">
+              <div class="form-group">
+                <label for="email">Nama Lengkap</label>
+                <input type="text" name="name_regis" id="name_regis" class="form-control" placeholder="Nama Lengkap">
+              </div>
+              <div class="form-group">
+                <label for="email">Username</label>
+                <input type="text" name="username_regis" id="username_regis" class="form-control" placeholder="Username minimal 4 karakter">
+                <span id="warning" style="display:none"><i>username sudah ada !!</i></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Password</label>
+                <div class="input-group">
+                  <input id="password_regis" name="password_regis" type="password" class="form-control" placeholder="Masukan Password">
+                  <div class="input-group-append" style="margin-right: -45px;">
+                    <div class="btn btn-warning" id="btn-view-pass" style="width: 50%;">
+                      <img src="http://simpleicon.com/wp-content/uploads/eye2-64x64.png" style="width: 100%;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mb-4">
+                  <label>Kota/ Kabupaten</label>
+                  <select id="kota_kab" name="kota_kab_regis" class="form-control select2" style="width: 100%;">
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="email">No. Telepon</label>
+                <input type="text" name="telp_regis" id="telp_regis" class="form-control" placeholder="masukan nomor telepon">
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email_regis" id="email_regis" class="form-control" placeholder="masukan email">
+              </div>
+              <input name="login" id="register" class="btn btn-block login-btn" type="submit" value="Register">
+            </form>
+            <!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
+            <p class="login-wrapper-footer-text" style="color: #fff;">Sudah punya akun? <a href="#!" id="goto-login" class="text-reset"><i>Log in</i></a></p>
+          </div>
+          </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="{{base_url}}assets/lte/plugins/select2/js/select2.full.min.js"></script>
+  <script src="{{base_url}}assets/lte/swal/swal.js"></script>
+
+  <script>
+  $( document ).ready(function() {
+    $('.select2').select2();
+    $('#goto-register').on('click', function(){
+      $('#register-form').attr('style', 'display:block;');
+      $('#login-form').hide();
+    });
+
+    $('#goto-login').on('click', function(){
+      $('#login-form').show();
+      $('#register-form').attr('style', 'display:block;');
+      $('#register-form').hide();
+    });
+
+    loadkota();
+    $( "#btn-view-pass" ).mousedown(function(e) {
+        $('#password_regis').prop('type', 'text');
+    });
+
+    $( "#btn-view-pass" ).mouseup(function(e) {
+      $('#password_regis').prop('type', 'password');
+
+    });
+
+    $('#username_regis').keyup(function(){
+      $('#username_regis').attr('class', 'form-control');
+      $('#warning').attr('style', 'color: #f9b2b2;display:none;');
+      if($(this).val().length >= 4){
+        cekusername($(this).val());
+      }
+    });
+
+    if($('#message').val()){
+      if($('#code').val() == '3'){
+        var icn = 'error';
+        var ttl = 'Login gagal!';
+        var msg = $('#message').val();
+      }else if ($('#code').val() == '2'){
+        var icn = 'success';
+        var ttl = 'Register Berhasil!';
+        var msg = 'Silahkan Login.';
+      }
+
+      Swal.fire({
+        icon  : icn,
+        title : ttl,
+        text  : msg,
+        confirmButtonText: '<i class="fas fa-check"></i>'
+      });
+    }
+  });
+
+    function loadkota(){
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: 'loadkota',
+            data : {
+                    param      : '',
+             },
+            success: function(result){
+              $('#kota_kab').empty();
+              var option ='<option value="0">-Pilih-</option>';
+              for (var i = 0; i < result.length; i++) {
+                option += '<option value="'+result[i].id+'">'+result[i].nama+'</option>';
+              }
+              $('#kota_kab').append(option);
+            }
+          });
+        };
+
+    function cekusername(uname){
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: 'cekusername',
+            data : {
+                    username      : uname,
+             },
+            success: function(result){
+                console.log(result);
+                if(result){
+                  $('#username_regis').attr('class', 'form-control warning');
+                  $('#warning').attr('style', 'color: #f9b2b2;display:block;');
+                }
+            }
+          });
+        };
+
+
+  </script>
+</body>
+</html>

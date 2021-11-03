@@ -1,0 +1,195 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <input id="param" value="pengaduan" hidden>
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>List Video</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Video Tutorial</a></li>
+            <li class="breadcrumb-item active">List Video</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">      <!-- /.col -->
+      <div class="col-md-12">
+        <div class="card card-danger card-outline">
+          <div class="card-header">
+            <h3 class="card-title"></h3>
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm">
+                  <div class="btn btn-info" id="add-video">
+                    <i class="fas fa-plus"></i><span> Video</span>
+                  </div>
+              </div>
+            </div>
+            <!-- /.card-tools -->
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+                <table class="table table-bordered table-hover" id="list-video">
+                    <thead>
+                        <tr>
+                            <th>
+                                No
+                            </th>
+                            <th>
+                                Judul Video
+                            </th>
+                            <th>
+                                Url Video
+                            </th>
+                            <th>
+                                Deskripsi video
+                            </th>
+                            <th>
+                                action
+                            </th>
+                          </thead>
+                <!-- <tbody>
+                <tr>
+                  <td>
+                    <div class="icheck-primary">
+                      <input type="checkbox" value="" id="check1">
+                      <label for="check1"></label>
+                    </div>
+                  </td>
+                  <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                  <td class="mailbox-name"><a href="read-mail.html">Kim Kurniawan</a></td>
+                  <td class="mailbox-subject"><b>Lorem ipsum</b> - Trying to find a solution to this problem...
+                  </td>
+                  <td class="mailbox-attachment"></td>
+                  <td class="mailbox-date">5 mins ago</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="icheck-primary">
+                      <input type="checkbox" value="" id="check2">
+                      <label for="check2"></label>
+                    </div>
+                  </td>
+                  <td class="mailbox-star"><a href="#"><i class="fas fa-star-o text-warning"></i></a></td>
+                  <td class="mailbox-name"><a href="read-mail.html">Gian Zola</a></td>
+                  <td class="mailbox-subject"><b>Dolor sit amet</b> - Trying to find a solution to this problem...
+                  </td>
+                  <td class="mailbox-attachment"><i class="fas fa-paperclip"></i></td>
+                  <td class="mailbox-date">28 mins ago</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="icheck-primary">
+                      <input type="checkbox" value="" id="check3">
+                      <label for="check3"></label>
+                    </div>
+                  </td>
+                  <td class="mailbox-star"><a href="#"><i class="fas fa-star-o text-warning"></i></a></td>
+                  <td class="mailbox-name"><a href="read-mail.html">Wander Luiz</a></td>
+                  <td class="mailbox-subject"><b>Consectetuer adipiscing elit</b> - Trying to find a solution to this problem...
+                  </td>
+                  <td class="mailbox-attachment"><i class="fas fa-paperclip"></i></td>
+                  <td class="mailbox-date">11 hours ago</td>
+                </tr>
+                </tbody> -->
+              </table>
+              <!-- /.table -->
+            <!-- /.mail-box-messages -->
+          </div>
+          <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </section>
+
+  <div class="modal fade" id="modal-add-video">
+    <div class="modal-dialog modal-lg card card-danger card-outline">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Tambah Video Tutorial</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-tambah-video">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input id="id" name="video-input" hidden>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Judul Video</label>
+                <input id="judul" name="video-input" type="text" class="form-control" placeholder="Enter ..." >
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label>Video Youtube</label>
+              <div class="input-group input-group-xs">
+                <input id="url" name="video-input" type="text" class="form-control" placeholder="Enter ..." >
+                <div class="input-group-append">
+                  <div class="btn btn-danger" id="btn-play-vid">
+                    <i class="fas fa-play"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+              <div class="form-group">
+                <label>Deskripsi Video</label>
+                  <textarea id="desc" name="video-input" class="form-control" rows="3" placeholder="Enter ..." ></textarea>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                <label>Preview Video</label>
+                <div id="iframe-video-add"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+          <button type="button" class="btn btn-danger" id="btn-clear-iframe">Clear Video</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-simpan-video">Simpan</button>
+        </div>
+     </div>
+    </div>
+  </div>
+  </div>
+
+   <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg card card-danger card-outline" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">View Video Youtube</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-view-video">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                <div id="iframe-video"></div>
+                <!-- <iframe id="iframe-video" width="100%" height="350" frameborder="0" src="http://www.youtube.com/embed/MKazjpTyAis?autoplay=1"></iframe> -->
+            </div>
+            <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+            <button type="button" class="btn btn-warning" data-dismiss="modal" id="tutup-view">tutup</button>
+          </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{base_url}}assets/js/action/listvideo.js"></script>
+{% endblock %}

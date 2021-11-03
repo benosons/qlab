@@ -1,0 +1,290 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Data dan Informasi Aplikasi</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Konfigurasi</a></li>
+          <li class="breadcrumb-item active">Data dan Informasi</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <!-- Default box -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-primary card-tabs">
+              <div class="card-header p-0 pt-1">
+                <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
+                  <li class="pt-2 px-3"><h3 class="card-title"><i class="nav-icon fas fa-cogs"></i></h3></li>
+                  <li class="nav-item"><a class="nav-link active" href="#banner" data-toggle="tab">Atur Banner</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Informasi Aplikasi</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="banner">
+                    <div class="card card-danger card-outline">
+                      <div class="card-header">
+                        <h3 class="card-title">List Banner</h3>
+
+                        <div class="card-tools">
+                          <div class="input-group input-group-sm">
+                              <div class="btn btn-info" id="add-banner">
+                                <i class="fas fa-plus"></i><span> Banner</span>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <input id="param" value="User" hidden>
+                        <table class="table table-bordered table-hover" id="listbanner">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        No
+                                    </th>
+                                    <th>
+                                        Foto
+                                    </th>
+                                    <th>
+                                        Judul Banner
+                                    </th>
+                                    <th>
+                                        Deskripsi Teks Banner
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th>
+                                        action
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                  </div>
+                </div>
+                  </div>
+                  <!-- /.tab-pane -->
+
+                  <div class="tab-pane" id="settings">
+                    <input type="text" id="set-id" hidden>
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="set-nama" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Deskripsi</label>
+                        <div class="col-sm-10">
+                          <textarea type="text" class="form-control" id="set-deskripsi" placeholder=""></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Alamat</label>
+                        <div class="col-sm-10">
+                          <textarea type="text" class="form-control" id="set-alamat" placeholder=""></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="set-email" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">No. Telp</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="set-notelp" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Instagram</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="set-ig" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Twitter</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="set-twit" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Facebook</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="set-fb" placeholder="">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-danger" id="simpan-perubahan">Simpan Perubahan</button>
+                        </div>
+                      </div>
+
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog modal-lg card card-danger card-outline">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Detail</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input id="id" hidden>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Judul Banner</label>
+              <input id="judul" name="banner-input" type="text" class="form-control" placeholder="">
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label id="lbl-unm">Deskripsi</label>
+              <textarea id="deskripsi" name="banner-input" type="text" class="form-control" placeholder=""></textarea>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-md-3">
+            <label>Status Tampil</label>
+            <div class="form-group">
+              <input id="stat" type="checkbox" name="user-input" checked data-bootstrap-switch data-off-color="warning" data-on-color="primary" data-on-label="Ready" data-off-label="Not Ready">
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <label>Image Banner</label>
+            <div class="custom-file" style="margin-bottom: 10px;margin-top: 10px;">
+              <input type="file" class="custom-file-input" id="file" name="user-input">
+              <label class="custom-file-label" for="file">Pilih foto</label>
+            </div>
+          </div>
+          <!-- <div class="col-md-6">
+            <div class="text-center">
+                <img id="blah" class="profile-user-img img-fluid" src="assets/dokumen/gambar/user/default.jpg" alt="User profile picture">
+                <canvas hidden id="myCanvas"/>
+            </div>
+          </div> -->
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+
+<div class="container">
+    <div class="imageBox">
+        <div class="thumbBox"></div>
+        <div class="spinner" style="display: none">Loading...</div>
+    </div>
+    <div class="action">
+        <!-- <input type="file" id="file" style="float:left; width: 250px"> -->
+        <input class="btn btn-info btn-md" type="button" id="btnCrop" value="Crop" style="float: right;margin: 10px 10px 10px 10px;">
+        <input class="btn btn-info btn-md" type="button" id="btnZoomIn" value="+" style="float: right;margin: 10px 10px 10px 10px;">
+        <input class="btn btn-info btn-md" type="button" id="btnZoomOut" value="-" style="float: right;margin: 10px 10px 10px 10px;">
+    </div>
+    <div class="cropped">
+
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+        <button disabled id="save-banner" type="button" class="btn btn-success" ><i class="fas fa-check"> </i> Simpan</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<!-- modal detail user -->
+<div class="modal fade" id="modal-detail">
+  <div class="modal-dialog modal-sm card card-danger card-outline">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Detail</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="card-body box-profile">
+            <div class="text-center">
+              <img id="detail-foto" class="profile-user-img img-fluid img-circle" src="assets/dokumen/gambar/user/default.jpg" alt="User profile picture">
+            </div>
+
+            <h3 class="profile-username text-center" id="detail-name">Nina Mcintire</h3>
+
+            <p class="text-muted text-center" id="detail-username">Software Engineer</p>
+
+            <ul class="list-group list-group-unbordered mb-3">
+              <li class="list-group-item">
+                <b>Kota/ Kabupaten</b> <a class="float-right" id="detail-kotakab">1,322</a>
+              </li>
+              <li class="list-group-item">
+                <b>Status</b> <a class="float-right" id="detail-status">543</a>
+              </li>
+              <li class="list-group-item">
+                <b>Jenis User</b> <a class="float-right" id="detail-role">13,287</a>
+              </li>
+            </ul>
+
+            <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
+          </div>
+          <!-- /.card-body -->
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+        <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fas fa-times"> </i> Tutup</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.card -->
+
+</section>
+
+<!-- /.content -->
+
+
+{% endblock %}
+{% block js %}
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+<script type="text/javascript" src="{{base_url}}assets/js/action/listbanner.js"></script>
+<script type="text/javascript" src="{{base_url}}assets/lte/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+{% endblock %}

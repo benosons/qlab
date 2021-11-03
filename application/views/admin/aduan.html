@@ -1,0 +1,199 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <input id="role" value="{{role}}" hidden>
+  <input id="id_user" value="{{id}}" hidden>
+  <input id="param" value="" hidden>
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Pengaduan (Kirim Pesan Baru)</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Pengaduan</a></li>
+            <li class="breadcrumb-item active">List Pengaduan</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+      <div class="col-md-12">
+        <div class="card card-danger card-outline">
+          <!-- /.card-header -->
+          <div class="card-body">
+
+              <input id="id" hidden>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input disabled id="name" value="{{name}}" name="user-input" type="text" class="form-control" placeholder="Nama Lengkap ...">
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Username</label>
+                    <input disabled id="username" value="{{username}}" name="user-input" type="text" class="form-control" placeholder="Username ...">
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Nomor Telepon</label>
+                    <input id="no-tlp" name="user-input" value="{{notelp}}" type="text" class="form-control" placeholder="Nomor Telepon ...">
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input id="email" name="user-input" value="{{email}}" type="text" class="form-control" placeholder="Email ...">
+                  </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Judul Aduan</label>
+                    <input id="judul" name="user-input" type="text" class="form-control" placeholder="Judul ...">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                        <label>Isi Aduan</label>
+                        <textarea id="isi-aduan" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                      </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                        <label>Lampiran</label>
+                        <div class="custom-file" style="margin-bottom: 10px;margin-top: 10px;">
+                          <input type="file" class="custom-file-input" id="lampiran-aduan" name="lembaga-input" multiple>
+                          <label class="custom-file-label" for="lampiran-aduan">Pilih File</label>
+                        </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <ul class="mailbox-attachments d-flex align-items-stretch clearfix" id="attach-file">
+                    <!-- <li>
+                      <span class="mailbox-attachment-icon"><i class="far fa-file-pdf"></i></span>
+
+                      <div class="mailbox-attachment-info">
+                        <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i> Sep2014-report.pdf</a>
+                            <span class="mailbox-attachment-size clearfix mt-1">
+                              <span>1,245 KB</span>
+                              <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
+                            </span>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="mailbox-attachment-icon"><i class="far fa-file-word"></i></span>
+
+                      <div class="mailbox-attachment-info">
+                        <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i> App Description.docx</a>
+                            <span class="mailbox-attachment-size clearfix mt-1">
+                              <span>1,245 KB</span>
+                              <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
+                            </span>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="mailbox-attachment-icon has-img"><img src="../../dist/img/photo1.png" alt="Attachment"></span>
+
+                      <div class="mailbox-attachment-info">
+                        <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> photo1.png</a>
+                            <span class="mailbox-attachment-size clearfix mt-1">
+                              <span>2.67 MB</span>
+                              <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
+                            </span>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="mailbox-attachment-icon has-img"><img src="../../dist/img/photo2.png" alt="Attachment"></span>
+
+                      <div class="mailbox-attachment-info">
+                        <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> photo2.png</a>
+                            <span class="mailbox-attachment-size clearfix mt-1">
+                              <span>1.9 MB</span>
+                              <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
+                            </span>
+                      </div>
+                    </li> -->
+                  </ul>
+                </div>
+                </div>
+                <center>
+                <button type="button" class="btn btn-primary pull-right" id="kirim-aduan"><i class="nav-icon fas fa-check"></i> Kirim</button>
+                </center>
+            <!-- /.mail-box-messages -->
+          </div>
+          <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+
+    <div class="modal fade" id="modal-default">
+      <div class="modal-dialog modal-lg card card-danger card-outline">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title"></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <input id="id" hidden>
+          <div class="modal-body">
+            <div class="card direct-chat direct-chat-primary">
+              <div class="card-body" style="display: block;">
+                  <input id="id-parent" hidden>
+                  <input id="id-pelapor" hidden>
+                  <input id="id-admin" hidden>
+                  <input id="nama-pelapor" hidden>
+                  <input id="date-laporan" hidden>
+                  <input id="isi-laporan" hidden>
+                  <input id="status-laporan" hidden>
+                  <div class="direct-chat-messages" id="percakapan" style="height: 400px;">
+
+                  </div>
+                </div>
+                <div class="card-footer" style="display: block;">
+                  <form action="#" method="post">
+                    <div class="input-group">
+                      <input type="text" id="pesan-balasan" name="message" placeholder="Balasan ..." class="form-control">
+                      <span class="input-group-append">
+                        <button type="button" class="btn btn-primary" id="kirim-balasan">Kirim</button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+          </div>
+
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.row -->
+  </section>
+  <!-- /.content -->
+
+{% endblock %}
+{% block js %}
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+<script type="text/javascript" src="{{base_url}}assets/js/action/aduan.js"></script>
+<script type="text/javascript" src="{{base_url}}assets/lte/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+{% endblock %}

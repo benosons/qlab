@@ -1,0 +1,784 @@
+{% extends "users/layout.html" %} {% block content %}
+
+<!-- ======= Counts Section ======= -->
+<section class="counts section-bg">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
+        <div class="count-box">
+          <!-- <i class="icofont-monitor" style="color: #20b38e;"></i> -->
+          <img src="{{base_url}}assets/img/logo/monitor-icon.png" style="width: 50%;"></img>
+          <span data-toggle="counter-up" id="total-tv"></span>
+          <p>Total Siaran Televisi</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="count-box">
+          <!-- <i class="icofont-radio" style="color: #c042ff;"></i> -->
+          <img src="{{base_url}}assets/img/logo/radio-icon.png" style="width: 39%;"></img>
+          <span data-toggle="counter-up" id="total-radio"></span>
+          <p>Total Siaran Radio</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="count-box">
+          <!-- <i class="icofont-live-support" style="color: #46d1ff;"></i> -->
+          <img src="{{base_url}}assets/img/logo/broadcast-icon.png" style="width: 29%;"></img>
+          <span data-toggle="counter-up" id="total-aduan"></span>
+          <p>Total Konsultasi dan Masukan</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="600">
+        <div class="count-box">
+          <!-- <i class="icofont-youtube-play" style="color: #c8151a;"></i> -->
+          <img src="{{base_url}}assets/img/logo/video-icon.png" style="width: 50%;"></img>
+          <span data-toggle="counter-up" id="total-video"></span>
+          <p>Total Video Tutorial</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Counts Section -->
+
+  <section id="penyiaran">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card card-danger card-outline">
+            <div class="card-header">
+              <div class="section-title">
+                <h2>Lembaga Penyiaran</h2>
+                <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur.</p> -->
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label>Pilih Kota/ Kabupaten :</label>
+                  <select id="kota_front" name="kota_kab_regis" class="form-control select2" style="width: 100%;">
+                  </select>
+                </div>
+
+              </div>
+              <table id="data-siaran" class="table table-bordered table-hover">
+                <thead style="background-color:#001f3f;color:white;">
+                <tr>
+                  <th style="width:10%;">No</th>
+                  <th style="width:10%;">Logo</th>
+                  <th style="width:30%;">Lembaga Penyiaran</th>
+                  <th style="width:15%;">Medsos</th>
+                  <th style="width:15%;">Website</th>
+                  <th style="width:100%;">Alamat</th>
+                  <th style="width:30%;">Detail</th>
+                </tr>
+                </thead>
+              </table>
+              <!-- <div class="row">
+                <div class="col-5 col-sm-2">
+                  <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Televisi</a>
+                    <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Radio</a>
+                  </div>
+                </div>
+                <div class="col-7 col-sm-10">
+                  <div class="tab-content" id="vert-tabs-tabContent">
+                    <div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
+                      <table id="data-televisi" class="table table-bordered table-hover">
+                        <thead style="background-color:#001f3f;color:white;">
+                        <tr>
+                          <th style="width:10%;">No</th>
+                          <th style="width:50%;">Lembaga Penyiaran</th>
+                          <th>Alamat</th>
+                        </tr>
+                        </thead>
+                      </table>
+                    </div>
+                    <div class="tab-pane fade" id="vert-tabs-profile" role="tabpanel" aria-labelledby="vert-tabs-profile-tab">
+                      <table id="data-radio" class="table table-bordered table-hover">
+                        <thead style="background-color:#001f3f;color:white;">
+                        <tr>
+                          <th style="width:10%;">No</th>
+                          <th style="width:50%;">Lembaga Penyiaran</th>
+                          <th>Alamat</th>
+                        </tr>
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- <div class="col-lg-5">
+          <div class="card card-danger card-outline" style="height: 50em;">
+            <div class="card-header">
+              <div class="section-title">
+                <h2>Laporan Pengaduan</h2>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <table id="data-aduan" class="table table-bordered table-hover">
+                <thead style="background-color:#001f3f;color:white;">
+                <tr>
+                  <th>No</th>
+                  <th>Laporan Pengaduan</th>
+                </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <section id="video-tutorial" class="portfolio section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Video Tutorial</h2>
+        <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+      </div>
+
+          <div class="row align-items-start">
+              <div class="col-lg-12 m-15px-tb">
+                  <div class="row" id="video-grid">
+
+                  </div>
+                  <div class="col-12">
+                      <ul class="pagination justify-content-center">
+                          <li class="page-item">
+                              <a class="page-link" href="javascript:prevPage()" id="btn_prev"><i class="fas fa-chevron-left"></i></a>
+                          </li>
+                          <li class="page-item active"><a class="page-link" href="#"><span id="page">1</span></a></li>
+                          <li class="page-item">
+                              <a class="page-link" href="javascript:nextPage()" id="btn_next" ><i class="fas fa-chevron-right"></i></a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+    </div>
+  </section><!-- End Our Portfolio Section -->
+
+  <!-- ======= About Lists Section ======= -->
+  <section class="about-lists" hidden>
+    <div class="container">
+
+      <div class="row no-gutters">
+
+        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
+          <span>01</span>
+          <h4>Lorem Ipsum</h4>
+          <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+        </div>
+
+        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="100">
+          <span>02</span>
+          <h4>Repellat Nihil</h4>
+          <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+        </div>
+
+        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="200">
+          <span>03</span>
+          <h4> Ad ad velit qui</h4>
+          <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
+        </div>
+
+        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="300">
+          <span>04</span>
+          <h4>Repellendus molestiae</h4>
+          <p>Inventore quo sint a sint rerum. Distinctio blanditiis deserunt quod soluta quod nam mider lando casa</p>
+        </div>
+
+        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="400">
+          <span>05</span>
+          <h4>Sapiente Magnam</h4>
+          <p>Vitae dolorem in deleniti ipsum omnis tempore voluptatem. Qui possimus est repellendus est quibusdam</p>
+        </div>
+
+        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="500">
+          <span>06</span>
+          <h4>Facilis Impedit</h4>
+          <p>Quis eum numquam veniam ea voluptatibus voluptas. Excepturi aut nostrum repudiandae voluptatibus corporis sequi</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End About Lists Section -->
+
+  <!-- ======= Our Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio section-bg" hidden>
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="section-title">
+        <h2>Our Portfolio</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-app">App</li>
+            <li data-filter=".filter-card">Card</li>
+            <li data-filter=".filter-web">Web</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row portfolio-container">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="{{base_url}}assets/mamba/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <div class="portfolio-links">
+                <a href="{{base_url}}assets/mamba/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="icofont-eye"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="icofont-external-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="{{base_url}}assets/mamba/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <div class="portfolio-links">
+                <a href="{{base_url}}assets/mamba/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="icofont-eye"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="icofont-external-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="{{base_url}}assets/mamba/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 2</h4>
+              <p>App</p>
+              <div class="portfolio-links">
+                <a href="{{base_url}}assets/mamba/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="icofont-eye"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="icofont-external-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="{{base_url}}assets/mamba/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 2</h4>
+              <p>Card</p>
+              <div class="portfolio-links">
+                <a href="{{base_url}}assets/mamba/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="icofont-eye"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="icofont-external-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="{{base_url}}assets/mamba/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <div class="portfolio-links">
+                <a href="{{base_url}}assets/mamba/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="icofont-eye"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="icofont-external-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="{{base_url}}assets/mamba/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <div class="portfolio-links">
+                <a href="{{base_url}}assets/mamba/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="icofont-eye"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="icofont-external-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="{{base_url}}assets/mamba/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 1</h4>
+              <p>Card</p>
+              <div class="portfolio-links">
+                <a href="{{base_url}}assets/mamba/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="icofont-eye"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="icofont-external-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="{{base_url}}assets/mamba/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 3</h4>
+              <p>Card</p>
+              <div class="portfolio-links">
+                <a href="{{base_url}}assets/mamba/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="icofont-eye"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="icofont-external-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="{{base_url}}assets/mamba/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <div class="portfolio-links">
+                <a href="{{base_url}}assets/mamba/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="icofont-eye"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="icofont-external-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Our Portfolio Section -->
+
+  <!-- ======= Our Team Section ======= >
+  <section id="team" class="team">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Our Team</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="member">
+            <div class="pic"><img src="{{base_url}}assets/mamba/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+            <div class="member-info">
+              <h4>Walter White</h4>
+              <span>Chief Executive Officer</span>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="member">
+            <div class="pic"><img src="{{base_url}}assets/mamba/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+            <div class="member-info">
+              <h4>Sarah Jhonson</h4>
+              <span>Product Manager</span>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="member">
+            <div class="pic"><img src="{{base_url}}assets/mamba/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+            <div class="member-info">
+              <h4>William Anderson</h4>
+              <span>CTO</span>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="member">
+            <div class="pic"><img src="{{base_url}}assets/mamba/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+            <div class="member-info">
+              <h4>Amanda Jepson</h4>
+              <span>Accountant</span>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section> End Our Team Section -->
+
+  <!-- ======= Frequently Asked Questions Section ======= ->
+  <section id="faq" class="faq section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="row  d-flex align-items-stretch">
+
+        <div class="col-lg-6 faq-item" data-aos="fade-up">
+          <h4>Non consectetur a erat nam at lectus urna duis?</h4>
+          <p>
+            Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+          </p>
+        </div>
+
+        <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
+          <h4>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h4>
+          <p>
+            Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
+          </p>
+        </div>
+
+        <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="200">
+          <h4>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?</h4>
+          <p>
+            Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus.
+          </p>
+        </div>
+
+        <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="300">
+          <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
+          <p>
+            Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
+          </p>
+        </div>
+
+        <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="400">
+          <h4>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h4>
+          <p>
+            Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+          </p>
+        </div>
+
+        <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="500">
+          <h4>Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor?</h4>
+          <p>
+            Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!- End Frequently Asked Questions Section -->
+
+  <!-- ======= Contact Us Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Konsultasi dan Masukan</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 d-flex align-items-stretch">
+          <div class="info-box">
+
+            <div class="row">
+              <div class="col-md-12">
+                <img src="{{base_url}}assets/img/logo/send.png" style="width: 25%;"></img>
+              </div>
+              <div class="col-md-12">
+                <h3>Konsultasi online</h3>
+              </div>
+              <div class="col-md-12">
+                {% if name %}
+                <a href="{{base_url}}dashboard"><button class="btn btn-success" type="button" name="button">Tampilkan Dashboard <i class="icofont-arrow-right" style="border: none;color: #fff;font-size:20px;"></i></button></a>
+                {% else %}
+                <a href="{{base_url}}auth"><button class="btn btn-danger" type="button" name="button">Login atau Registrasi <i class="icofont-arrow-right" style="border: none;color: #fff;font-size:20px;"></i></button></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 d-flex align-items-stretch" >
+          <div class="info-box">
+            <div class="row">
+              <div class="col-md-12">
+                <img src="{{base_url}}assets/img/logo/location.png" style="width: 20%;"></img>
+              </div>
+              <div class="col-md-12">
+                <h3>Alamat Kami:</h3>
+              </div>
+              <div class="col-md-12">
+                <p name="set-alamat"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 d-flex align-items-stretch">
+          <div class="info-box">
+            <div class="row">
+              <div class="col-md-12">
+                <img src="{{base_url}}assets/img/logo/mail.png" style="width: 25%;"></img>
+              </div>
+              <div class="col-md-12">
+                <h3>Email</h3>
+              </div>
+              <div class="col-md-12">
+                <p name="set-email"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 d-flex align-items-stretch">
+          <div class="info-box ">
+            <div class="row">
+              <div class="col-md-12">
+                <img src="{{base_url}}assets/img/logo/phone.png" style="width: 20%;"></img>
+              </div>
+              <div class="col-md-12">
+                <h3>Telepon</h3>
+              </div>
+              <div class="col-md-12">
+                <p name="set-notelp"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-lg-12">
+          <form role="form" class="php-email-form">
+            <div class="form-row">
+              <div class="col-lg-6 form-group">
+                <input value="{{username}}" type="text" name="name" class="form-control" id="name" placeholder="username" data-rule="minlen:4" data-msg="" disabled/>
+                <div class="validate"></div>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Judul" data-rule="minlen:4" data-msg="Tuliskan Judul Laporan Anda." />
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" id="message" data-rule="required" data-msg="Tuliskan Laporan Anda." placeholder="Tulis pesan"></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="mb-3">
+              <div class="loading">Loading</div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            {% if role == 30 %}
+            <div class="text-center"><button type="submit" id="kirim-laporan">Kirim</button></div>
+            <input id="baseurl" value="{{base_url}}" hidden>
+            {% else %}
+            <div class="text-center"><button class="btn btn-success" href={{base_url}}auth >Login</button></div>
+            {% endif %}
+          </form>
+        </div> -->
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Us Section -->
+
+  <!-- ======= Services Section ======= ->
+  <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Services</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+          <div class="icon"><i class="icofont-computer"></i></div>
+          <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+          <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
+          <h4 class="title"><a href="">Dolor Sitema</a></h4>
+          <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon"><i class="icofont-earth"></i></div>
+          <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+          <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon"><i class="icofont-image"></i></div>
+          <h4 class="title"><a href="">Magni Dolores</a></h4>
+          <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+          <div class="icon"><i class="icofont-settings"></i></div>
+          <h4 class="title"><a href="">Nemo Enim</a></h4>
+          <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+          <div class="icon"><i class="icofont-tasks-alt"></i></div>
+          <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+          <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+        </div>
+      </div>
+
+    </div>
+  </section><!- End Services Section -->
+
+  <!-- ======= About Us Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row no-gutters">
+        <div class="col-lg-4 video-box">
+          <img src="{{base_url}}assets/login/images/bg.png" class="img-fluid" alt="" style="width: 100%;">
+          <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a> -->
+        </div>
+
+        <div class="col-lg-8 d-flex flex-column justify-content-center about-content" style="padding-right: 4%!important;padding-left: 4%!important;">
+
+          <div class="section-title">
+            <h2 style="font-size: 24px;">Tentang</h2>
+            <h2 style="font-size: 20px;">SIPP KPID JAWARA</h2>
+            <p style="text-align: justify;text-justify: inter-word;">SIPP KPID JAWARA
+adalah sebuah aplikasi berbasis website online yang dimiliki oleh Bidang Infrastruktur KPID Jawa Barat.
+SIPP KPID JAWARA merupakan terobosan baru yang dimiliki oleh Bidang Infrastruktur KPID Jawa Barat yang menyesuaikan dengan perkembangan teknologi dan informasi sehingga dapat memberikan pelayanan yang baik bagi masyarakat khususnya di Wilayah Jawa Barat.
+SIPP KPID JAWARA dibuat untuk menyampaikan informasi yang berkaitan dengan pelayanan dan perizinan televisi, radio yang ada di Provinsi Jawa Barat
+SIPP KPID JAWARA menyediakan fitur untuk melakukan konsultansi bagi para pihak yang akan menanyakan terkait pelayanan dan perizinan apabila terdapat kendala atau ingin mendapatkan informasi
+SIPP KPID JAWARA menyedia fitur video tutorial terkait Tutorial Permohonan NIB Melalui OSS LPK, Tutorial Permohonan IPP Sameday Service, EUCS, dan Perpanjangan LPK serta tutorial lainnya yang berkaitan dengan pelayanan dan perizinan.</p>
+          </div>
+
+          <div class="icon-box">
+            <div class="icon"><img src="{{base_url}}assets/img/logo/kpid-1.png" style="width:100%;"></img></div>
+            <h4 class="title"><a href="">SEORANG PENYIAR</a></h4>
+            <p class="description">seorang penyiar yang menggunakan pakaian khas jawa barat yang mencerminkan budaya khas jawa barat
+seorang penyiar dengan identitas laki-laki yang melambangkan seorang pelopor yang mencetuskan lahirnya SIPP KPID JAWARA
+warna merah dan hitam melambangkan warna khas dari KPID JAWA BARAT.</p>
+          </div>
+
+          <div class="icon-box">
+            <div class="icon"><img src="{{base_url}}assets/img/logo/kpid-2.png" style="width:100%;"></img></div>
+            <h4 class="title"><a href="">Tulisan SIPP KPID JAWARA</a></h4>
+            <p class="description">Aplikasi Pelayanan Perizinan Jawa Barat Juara.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog modal-lg card card-danger card-outline">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Detail</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Direktur</label>
+                <input id="pimpinan" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>E-mail</label>
+                <input id="email" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Frekuensi</label>
+                <input id="frekuensi" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Koordinat Lokasi</label>
+                <input id="koor" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Alamat</label>
+                <textarea id="alamat" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Kontak</label>
+                <textarea id="kontak" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12" id="maps">
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+          <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+    {% endblock %}
+    {% block js %}
+    <script type="text/javascript" src="{{base_url}}assets/js/action/user/index.js"></script>
+    {% endblock %}
