@@ -201,7 +201,7 @@
     });
 
 
-  cekStatus(0);
+  // cekStatus(0);
   function cekStatus(param){
 
       $.ajax({
@@ -264,5 +264,9 @@
   </script>
 	{% block js %}
    {% endblock %}
+
+  {% if script %}
+      <script src = "{{script}}"></script>
+  {% endif %}
 </body>
 </html>

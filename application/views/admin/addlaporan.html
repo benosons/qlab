@@ -1,0 +1,190 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="card" id="">
+      <div class="card-body">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h4><i class="fas fa-microscope"></i> Data Uji Lab</h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="listujilab">Data Uji Lab</a></li>
+              <li class="breadcrumb-item active">Input Laporan Uji Lab</li>
+            </ol>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <!-- Default box -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="card card-primary card-outline" id="input_2">
+          
+          <!-- /.card-header -->
+          <!-- form start -->
+          <form>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">No Laporan</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="..">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">No Dokumen</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nama Sampel</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">No Batch</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nama Pengirim</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Alamat Pengirim</label>
+                    <textarea type="text" class="form-control" id="exampleInputPassword1" placeholder="..." rows="3"></textarea>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Tanggal Penerimaan Sampel</label>
+                    <input type="date" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Kode Sampel</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Metode Pengujian</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card card-primary card-outline" id="input_3">
+          <div class="card-header">
+            <h3 class="card-title text-primary"><b>Hasil Pengujian</b></h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+          <form>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Parameter Uji</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="..">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Hasil Uji</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Persyaratan</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Metode</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="...">
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Kesimpulan</label>
+                    <textarea type="text" class="form-control" id="exampleInputPassword1" placeholder="..." rows="3"></textarea>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                  </div>
+                  <div class="input-group-append">
+                    <span class="input-group-text">Upload</span>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div> -->
+            </div>
+            <!-- /.card-body -->
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+              <a type="submit" class="btn btn-warning " href="{{base_url}}listujilab"><i class="fas fa-arrow-left"></i> Kembali</a>
+              <button type="submit" class="btn btn-success float-right"><i class="fas fa-check"></i> Submit</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /.content -->
+
+
+{% endblock %}
+{% block js %}
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+<!-- <script type="text/javascript" src="{{base_url}}assets/js/action/listuser.js"></script> -->
+<script type="text/javascript" src="{{base_url}}assets/lte/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+{% endblock %}

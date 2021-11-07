@@ -1,0 +1,87 @@
+{% extends "admin/layout.html" %} {% block content %}
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="card" id="">
+      <div class="card-body">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h4><i class="fas fa-file-medical"></i> Pengajuan Uji Lab</h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item active">Pengajuan Uji Lab</li>
+            </ol>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <!-- Default box -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-primary card-outline">
+          <div class="card-header">
+            <h3 class="card-title"></h3>
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm">
+                  <a class="btn btn-success" href="{{base_url}}addpengajuan">
+                    <i class="fas fa-plus"></i><span> Tambah Pengajuan</span>
+                  </a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <input id="param" value="User" hidden>
+            <table class="table table-bordered table-hover" id="list-pengajuan">
+                <thead>
+                    <tr>
+                        <th>
+                            No
+                        </th>
+                        <th>
+                            Dokumen
+                        </th>
+                        <th>
+                            Nama Pelanggan
+                        </th>
+                        <th>
+                            Tanggal
+                        </th>
+                        <th>
+                            Tanda Terima Sample
+                        </th>
+                        <th>
+                            Aksi
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /.content -->
+
+
+{% endblock %}
+{% block js %}
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+<!-- <script type="text/javascript" src="{{base_url}}assets/js/action/listuser.js"></script> -->
+<script type="text/javascript" src="{{base_url}}assets/lte/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+{% endblock %}
