@@ -3,9 +3,6 @@ $( document ).ready(function() {
   $('.select2').select2();
   var st = true;
   window.img = '';
-
-  $('#list-pengajuan').DataTable();
-  
   $("input[data-bootstrap-switch]").each(function(){
     // $(this).bootstrapSwitch('state', $(this).prop('checked'));
     $(this).bootstrapSwitch({
@@ -15,94 +12,93 @@ $( document ).ready(function() {
     });
   });
 
-  $('#input_1').height($('#input_2').height() + 'px');
   $('#input_3').height($('#input_2').height() + 'px');
+  // $('#input_3').height($('#input_2').height() + 'px');
 
   $('.bootstrap-switch-handle-on').html('Aktif');
   $('.bootstrap-switch-handle-off').html('Tidak');
 
-  $('#pengajuan > a').attr('class','nav-link active');
+  $('#invoice > a').attr('class','nav-link active');
+  $('#add-users').on('click', function(){
+    $('#modal-default').modal({
+      show: true
+    });
+    $('#id').val('');
+    $('.modal-title').html('Tambah User');
+    $('#username').attr('disabled', false);
+    $('#password').attr('disabled', false);
+    $("[name='user-input']").val('');
+    // $("#kota-kab").select2('data', {}).trigger('change');
+    $('#kota-kab').val(0).trigger('change');
+    $('#blah').attr('src', 'assets/dokumen/gambar/user/default.jpg');
+    $('label[for="foto-user"]').text('Pilih Foto');
+  });
 
-  loadujilab();
+  $('#save-user').on('click', function(){
+    if(!$('#name').val()){
+      $('#name').attr('class', 'form-control is-invalid');
+    }else if(!$('#username').val()){
+      $('#username').attr('class', 'form-control is-invalid');
+    }else if(!$('#password').val()){
+      $('#password').attr('class', 'form-control is-invalid');
+    }else{
+      saveUser(st);
+    }
+  });
+
+  $('#name').keyup(function(){$(this).attr('class', 'form-control')});
+  $('#username').keyup(function(){$(this).attr('class', 'form-control')});
+  $('#password').keyup(function(){$(this).attr('class', 'form-control')});
+
+
+  loadkota();
+  loaddatauser();
+
+  $( "#btn-view-pass" ).mousedown(function(e) {
+      $('#password').prop('type', 'text');
+      $('#btn-view-pass > i').attr('class','far fa-eye-slash');
+  });
+
+  $( "#btn-view-pass" ).mouseup(function(e) {
+      $('#password').prop('type', 'password');
+      $('#btn-view-pass > i').attr('class','far fa-eye');
+  });
+
+  $("#foto-user").change(function() {
+    readURL(this);
+  });
+
+  $('#username').keyup(function(){
+    $('#username').attr('class', 'form-control');
+    $('#warning').attr('style', 'color: #f9b2b2;display:none;');
+    $('#lbl-unm').attr('style', 'display:block;');
+
+    $('#save-user').attr('disabled', false);
+
+    if($(this).val().length >= 4){
+      cekusername($(this).val());
+    }
+  });
 
 });
 
-function loadujilab(){
+$('#input_2, #input_3').height($('#input_1').height() + 'px');
+
+function loadkota(){
     $.ajax({
         type: 'post',
         dataType: 'json',
-        url: 'loadujilab',
+        url: 'loadkota',
         data : {
                 param      : '',
          },
         success: function(result){
-          let data = result.data;
-          var dt = $('#list-pengajuan').DataTable({
-            destroy: true,
-            paging: true,
-            lengthChange: false,
-            searching: true,
-            ordering: true,
-            info: true,
-            autoWidth: false,
-            responsive: false,
-            pageLength: 10,
-            aaData: data,
-            aoColumns: [
-                { 'mDataProp': 'id', 'width':'10px'},
-                { 'mDataProp': 'nama'},
-                { 'mDataProp': 'nama'},
-                { 'mDataProp': 'create_date'},
-                { 'mDataProp': 'jumlah'},
-                { 'mDataProp': 'jumlah', 'className':'align-middle'},
-            ],
-            order: [[0, 'ASC']],
-            fixedColumns: true,
-            aoColumnDefs:[
-              { width: 50, targets: 0 },
-              {
-                  mRender: function ( data, type, row ) {
-
-                    var el = `<a href="https://bios-studio.com/qlab-admin/upload/example.pdf" target="_blank" data-color="#265ed7" class="text-small" download="" style="color: rgb(38, 94, 215);">
-                                <ion-icon name="download-outline"></ion-icon> Filename
-                              </a>`;
-
-                      return el;
-                  },
-                  aTargets: [1]
-              },
-              {
-                  mRender: function ( data, type, row ) {
-
-                    var el = `<div class="btn-group btn-group-sm">
-                                <a href="#" class="btn btn-success"><i class="fas fa-eye"></i></a>
-                                <a href="#" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                              </div>`;
-
-                      return el;
-                  },
-                  aTargets: [5]
-              },
-            ],
-            fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
-                var index = iDisplayIndexFull + 1;
-                $('td:eq(0)', nRow).html('#'+index);
-                return  index;
-            },
-            fnInitComplete: function () {
-
-                var that = this;
-                var td ;
-                var tr ;
-                this.$('td').click( function () {
-                    td = this;
-                });
-                this.$('tr').click( function () {
-                    tr = this;
-                });
-            }
-        });
+          $('#kota-kab').empty();
+          var option ='<option value="0">-Pilih-</option>';
+          for (var i = 0; i < result.length; i++) {
+            option += '<option value="'+result[i].id+'">'+result[i].nama+'</option>';
+          }
+          $('#kota-kab').append(option);
         }
       });
     };
@@ -117,7 +113,7 @@ function loadujilab(){
                     param      : '',
              },
             success: function(result){
-                    var dt = $('#list-pengajuan').DataTable({
+                    var dt = $('#listuser').DataTable({
                         responsive: true,
                         bDestroy: true,
                         processing: true,

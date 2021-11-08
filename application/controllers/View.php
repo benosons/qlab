@@ -58,7 +58,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/listpengajuan.html', $this->content);
 			// }
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -72,7 +72,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/addpengajuan.html', $this->content);
 			// }
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -86,7 +86,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/listujilab.html', $this->content);
 			// }
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -100,7 +100,21 @@ class View extends CI_Controller {
 				$this->twig->display('admin/addlaporan.html', $this->content);
 			// }
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
+		}
+	}
+
+	public function invoice()
+	{
+		if ( $this->logged)
+		{
+			// if($this->role == '10' || $this->role == '20' ){
+				// $this->content['status_aduan'] = $this->input->get('par');
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/invoice.js';
+				$this->twig->display('admin/invoice.html', $this->content);
+			// }
+		}else{
+			redirect("dashboard");
 		}
 	}
 
@@ -117,7 +131,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/aduan.html', $this->content);
 			}
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -130,7 +144,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/aduanreply.html', $this->content);
 			}
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -143,7 +157,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/aduanclose.html', $this->content);
 			}
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
