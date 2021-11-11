@@ -111,11 +111,11 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
-  <input hidden id="baseurl" value="{{base_url}}">
-  <input hidden id="role-user" value="{{role}}">
+  <input type="hide" id="baseurl" value="{{base_url}}">
+  <input type="hide" id="role-user" value="{{role}}">
 	<div class="wrapper">
 		{% include "admin/top_bar.html" %}
-		<div class="content-wrapper">
+		<div class="content-wrapper" style="margin-top: calc(1.5rem + 1px)!important;">
 			{% block content %} {% endblock %}
 		</div>
 		{% include "admin/footer.html" %}

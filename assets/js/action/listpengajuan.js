@@ -2,6 +2,8 @@ $( document ).ready(function() {
   console.log('You are running jQuery version: ' + $.fn.jquery);
   $('.select2').select2();
   var st = true;
+  window.isRole = $('#role-user').val();
+  window.baseUrl = $('#baseurl').val();
   window.img = '';
 
   $('#list-pengajuan').DataTable();
@@ -53,7 +55,8 @@ function loadujilab(){
                 { 'mDataProp': 'nama'},
                 { 'mDataProp': 'nama'},
                 { 'mDataProp': 'create_date'},
-                { 'mDataProp': 'jumlah'},
+                { 'mDataProp': 'jumlah', 'width':'100px'},
+                { 'mDataProp': 'status', 'width':'100px'},
                 { 'mDataProp': 'jumlah', 'className':'align-middle'},
             ],
             order: [[0, 'ASC']],
@@ -72,17 +75,36 @@ function loadujilab(){
                   aTargets: [1]
               },
               {
-                  mRender: function ( data, type, row ) {
+                mRender: function ( data, type, row ) {
 
+                  var el = `-`;
+
+                    return el;
+                },
+                aTargets: [4]
+              },
+              {
+                mRender: function ( data, type, row ) {
+
+                  var el = `-`;
+
+                    return el;
+                },
+                aTargets: [5]
+              },
+              {
+                  mRender: function ( data, type, row ) {
                     var el = `<div class="btn-group btn-group-sm">
-                                <a href="#" class="btn btn-success"><i class="fas fa-eye"></i></a>
-                                <a href="#" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                              </div>`;
+                                <a href="#" class="btn btn-success" onclick="$('#modal-detail').modal('show');"><i class="fas fa-eye"></i></a>`;
+                                if(window.isRole == 30){
+                                    el += `<a href="#" class="btn btn-primary"><i class="fas fa-edit"></i></a>`;
+                                    el +=`<a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>`;
+                                }
+                        el += `</div>`;
 
                       return el;
                   },
-                  aTargets: [5]
+                  aTargets: [6]
               },
             ],
             fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
