@@ -48,6 +48,48 @@ class View extends CI_Controller {
 
 	}
 
+	public function listregistrasi()
+	{
+		if ( $this->logged)
+		{
+			// if($this->role == '10' || $this->role == '20' ){
+				// $this->content['status_aduan'] = $this->input->get('par');
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/registrasi/listregistrasi.js';
+				$this->twig->display('admin/registrasi/listregistrasi.html', $this->content);
+			// }
+		}else{
+			redirect("dashboard");
+		}
+	}
+
+	public function addregistrasi()
+	{
+		if ( $this->logged)
+		{
+			// if($this->role == '10' || $this->role == '20' ){
+				// $this->content['status_aduan'] = $this->input->get('par');
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/registrasi/addregistrasi.js';
+				$this->twig->display('admin/registrasi/addregistrasi.html', $this->content);
+			// }
+		}else{
+			redirect("dashboard");
+		}
+	}
+
+	public function tinjauan()
+	{
+		if ( $this->logged)
+		{
+			// if($this->role == '10' || $this->role == '20' ){
+				// $this->content['status_aduan'] = $this->input->get('par');
+				$this->content['script'] = $this->data['base_url'].'assets/js/action/tinjauan.js';
+				$this->twig->display('admin/tinjauan.html', $this->content);
+			// }
+		}else{
+			redirect("dashboard");
+		}
+	}
+
 	public function listpengajuan()
 	{
 		if ( $this->logged)

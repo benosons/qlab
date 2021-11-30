@@ -26,30 +26,40 @@
   <!-- Default box -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="card card-info card-outline" id="input_1">
-          <div class="card-header">
-            <h3 class="card-title text-primary"><b>I. Pengirim sampel</b></h3>
-          </div>
-          <!-- /.card-header -->
-          <!-- form start -->
+          <!-- <div class="card-header">
+            <h3 class="card-title text-primary"><b></b></h3>
+          </div> -->
+          <blockquote class="quote-secondary">
+            <h4 style="color: black;">I. Pengirim sampel</h4>
+            
+          </blockquote>
           <form>
             <div class="card-body">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Nama</label>
-                <input type="text" class="form-control" id="nama" placeholder="...">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">Nama</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="nama" placeholder="...">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Instansi</label>
-                <input type="text" class="form-control" id="instansi" placeholder="...">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">Instansi</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="instansi" placeholder="...">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Alamat</label>
-                <textarea type="text" class="form-control" id="alamat" placeholder="..."></textarea>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">Alamat</label>
+                <div class="col-sm-9">
+                  <textarea type="text" class="form-control" id="alamat" placeholder="..."></textarea>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">No Telp/Hp</label>
-                <input type="text" class="form-control" id="notelp" placeholder="...">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">No Telp/Hp</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="notelp" placeholder="...">
+                </div>
               </div>
             </div>
             <!-- /.card-body -->
@@ -57,107 +67,109 @@
           </form>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="card card-primary card-outline" id="input_2">
-          <div class="card-header">
+          <!-- <div class="card-header">
             <h3 class="card-title text-primary"><b>II. Identitas Sampel</b></h3>
-          </div>
-          <!-- /.card-header -->
-          <!-- form start -->
+          </div> -->
+          <blockquote class="quote-secondary">
+            <h4 style="color: black;">II. Identitas Sampel</h4>
+            
+          </blockquote>
           <form>
             <div class="card-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Sampel</label>
-                    <input type="text" class="form-control" id="nama_sample" placeholder="..">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Pemerian</label>
-                    <input type="text" class="form-control" id="pemerian" placeholder="...">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Kandungan</label>
-                    <input type="text" class="form-control" id="kandungan" placeholder="...">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Jumlah</label>
-                    <input type="text" class="form-control" id="jumlah" placeholder="...">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Kemasan</label>
-                    <input type="text" class="form-control" id="kemasan" placeholder="...">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Transportasi Sampel</label>
-                    <input type="text" class="form-control" id="transportasi" placeholder="...">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Tempat Penyimpanan</label>
-                    <input type="text" class="form-control" id="penyimpanan" placeholder="...">
-                  </div>
-                </div>
+              <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Sampel</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="nama_sample" placeholder="..">
+                    </div>
+              </div>
+              <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Pemerian</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="pemerian" placeholder="...">
+                    </div>
+              </div>
+              <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Nomor Kode / Batch</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="batch" placeholder="...">
+                    </div>
+              </div>
+              <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Kandungan</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="kandungan" placeholder="...">
+                    </div>
+              </div>
+              <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Jumlah</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="jumlah" placeholder="...">
+                    </div>
+              </div>
+              <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Kemasan</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="kemasan" placeholder="...">
+                    </div>
+              </div>
+              <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Transportasi Sampel</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="transportasi" placeholder="...">
+                    </div>
+              </div>
+              <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Tempat Penyimpanan</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="penyimpanan" placeholder="...">
+                    </div>
+              </div>
                 
+            </div>
+            <!-- /.card-body -->
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="card card-primary card-outline" id="input_3">
+          <!-- <div class="card-header">
+            <h3 class="card-title text-primary"><b>III.	Pengujian yang diminta</b></h3>
+          </div> -->
+          <blockquote class="quote-secondary">
+            <h4 style="color: black;">III.	Pengujian yang diminta</h4>
+            
+          </blockquote>
+          <form>
+            <div class="card-body">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Masukan keterangan </label>
+                <div class="col-sm-10">
+                  <textarea type="text" class="form-control" id="alamat" placeholder="..."></textarea>
+                </div>
               </div>
             </div>
             <!-- /.card-body -->
           </form>
         </div>
       </div>
-      <div class="col-sm-4">
-        <div class="card card-primary card-outline" id="input_3">
-          <div class="card-header">
-            <h3 class="card-title text-primary"><b>III.	Pengujian yang diminta</b></h3>
-          </div>
-          <!-- /.card-header -->
-          <!-- form start -->
+      <div class="col-sm-12">
+        <div class="card card-primary card-outline" id="input_4">
+            <blockquote class="quote-secondary">
+              <h4 style="color: black;">IV.	Hal Lain</h4>
+              
+            </blockquote>
+
           <form>
             <div class="card-body">
-              <div class="form-group">
-                
-                <div class="custom-control custom-radio">
-                  <input class="custom-control-input" type="radio" id="ruanglingkup" name="ruanglingkup">
-                  <label for="ruanglingkup" class="custom-control-label">Ruang Lingkup</label>
-
-                  <div class="form-group">
-                    <textarea type="text" class="form-control" id="ruanglingkup_desc" placeholder="..." disabled></textarea>
-                  </div>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input class="custom-control-input" type="radio" id="nonruanglingkup" name="ruanglingkup">
-                  <label for="nonruanglingkup" class="custom-control-label">Non Ruang Lingkup</label>
-
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="nonruanglingkup_file" disabled>
-                        <label class="custom-file-label" for="exampleInputFile">Pilih file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
               
-              <!-- <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-              </div> -->
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Masukan keterangan </label>
+                <div class="col-sm-10">
+                  <textarea type="text" class="form-control" id="alamat" placeholder="..."></textarea>
+                </div>
+              </div>
             </div>
             <!-- /.card-body -->
           </form>

@@ -18,7 +18,7 @@ $( document ).ready(function() {
   $('.bootstrap-switch-handle-on').html('Aktif');
   $('.bootstrap-switch-handle-off').html('Tidak');
 
-  $('#pengajuan > a').attr('class','nav-link active');
+  $('#tinjau > a').attr('class','nav-link active');
 
 
   $('#submit-pengajuan').on('click', function(){

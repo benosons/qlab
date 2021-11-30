@@ -5,17 +5,18 @@
     <div class="callout callout-info">
       <div class="row">
         <div class="col-sm-6">
-          <h4><i class="fas fa-microscope"></i> Laporan Pengajuan Lab</h4>
+          <h4><i class="fas fa-file-medical"></i> Registrasi Sampel</h4>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="listujilab">Data Uji Lab</a></li>
-            <li class="breadcrumb-item active">Input Laporan Uji Lab</li>
+            <li class="breadcrumb-item"><a href="listpengajuan">Registrasi Sampel</a></li>
+            <li class="breadcrumb-item active">Input Registrasi Sampel</li>
           </ol>
         </div>
       </div>
     </div>
+
   </div><!-- /.container-fluid -->
 </section>
 
@@ -37,8 +38,8 @@
                 </div>
                 <div class="col-md-8">
                   <blockquote>
-                    <h4 style="color: black;">Laporan Pengajuan Laboratorium</h4>
-                    <p>Nomor : <span title="Source Title">M-137/QLAB/IX/021</span></p>
+                    <h4 style="color: black;">Form Registrasi Sampel</h4>
+                    <p>Nomor Sampel : <span title="Source Title">M-137/QLAB/IX/021</span></p>
                   </blockquote>
                 </div>
               </div>
@@ -49,46 +50,76 @@
                 </div>
                 <div class="col-md-8">
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Sampel</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Pengirim Sampel</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" id="nama" placeholder="...">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">No Batch</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Nama / Batch Sampel</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" id="nama" placeholder="...">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Pengirim</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Jenis Pemeriksaan</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" id="nama" placeholder="...">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Alamat Pengirim</label>
-                    <div class="col-sm-8">
-                      <textarea type="text" class="form-control" id="nama" placeholder="..."></textarea>
-                    </div>
-                  </div>
-                  
-
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Penerimaan Sampel</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Pemerian</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" id="nama" placeholder="...">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Kode Sampel</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal Terima</label>
+                    <div class="col-sm-8">
+                      <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal Selesai</label>
+                    <div class="col-sm-8">
+                      <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">No Invoice</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" id="nama" placeholder="...">
                     </div>
                   </div>
-                  
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Metode Pengujian</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Status Bayar</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="nama" placeholder="...">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal Kirim CoA</label>
+                    <div class="col-sm-8">
+                      <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Keterangan</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" id="nama" placeholder="...">
                     </div>
@@ -97,45 +128,6 @@
                 </div>
                 <div class="col-md-2">
                   
-                </div>
-              </div>
-
-              <hr/>
-
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <blockquote>
-                        <h4 style="color: black;">Hasil Pengujian</h4>
-                      </blockquote>
-                    </div>
-                    <div class="card-body">
-                      <table class="table table-bordered table-hover" id="">
-                        <thead class="bg-lightblue ">
-                            <tr>
-                                <th>
-                                    Parameter Uji
-                                </th>
-                                <th>
-                                    Hasil
-                                </th>
-                                <th>
-                                    Persyaratan
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><input type="text" class="form-control" id="nama" placeholder="..."></td>
-                            <td><input type="text" class="form-control" id="nama" placeholder="..."></td>
-                            <td><input type="text" class="form-control" id="nama" placeholder="..."></td>
-                          </tr>
-                        </tbody>
-                    </table>
-                    </div>
-
-                  </div>
                 </div>
               </div>
             </div>

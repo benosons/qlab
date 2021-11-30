@@ -3,6 +3,7 @@ $( document ).ready(function() {
   $('.select2').select2();
   var st = true;
   window.img = '';
+
   $("input[data-bootstrap-switch]").each(function(){
     // $(this).bootstrapSwitch('state', $(this).prop('checked'));
     $(this).bootstrapSwitch({
@@ -12,13 +13,13 @@ $( document ).ready(function() {
     });
   });
 
-  $('#input_1').height($('#input_2').height() + 'px');
+  $('#input_2, #input_3').height($('#input_1').height() + 'px');
   // $('#input_3').height($('#input_2').height() + 'px');
 
   $('.bootstrap-switch-handle-on').html('Aktif');
   $('.bootstrap-switch-handle-off').html('Tidak');
 
-  $('#pengajuan > a').attr('class','nav-link active');
+  $('#registrasi > a').attr('class','nav-link active');
 
 
   $('#submit-pengajuan').on('click', function(){
@@ -51,6 +52,7 @@ $( document ).ready(function() {
 
 });
 
+$('#input_2, #input_3').height($('#input_1').height() + 'px');
 
 function save(formData){
 
