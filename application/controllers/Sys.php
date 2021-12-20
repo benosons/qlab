@@ -50,7 +50,7 @@ class Sys extends CI_Controller {
 	}
 
 
-	public function dashboard()
+	public function home()
 	{
 		if ( $this->logged)
 		{
@@ -152,7 +152,7 @@ class Sys extends CI_Controller {
 			if($this->role == '10'){
 				$this->twig->display('admin/listUser.html', $this->content);
 			}else{
-				redirect("dashboard");
+				redirect("home");
 			}
 		}else{
 			redirect("logout");
@@ -207,7 +207,7 @@ class Sys extends CI_Controller {
 			header('Content-Type: application/json');
 			echo json_encode($data);
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 
 
@@ -293,7 +293,7 @@ class Sys extends CI_Controller {
 			header('Content-Type: application/json');
 			echo json_encode($data);
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 
 	}

@@ -46,7 +46,7 @@ class Auth extends CI_Controller {
 		if ($this->logged)
 		{
 			if($this->role == '10' || $this->role = '20'){
-				redirect("dashboard");
+				redirect("home");
 			}else if ($this->role == '30'){
 				redirect("/");
 			}
@@ -57,7 +57,7 @@ class Auth extends CI_Controller {
 
 				if ($valid->valid){
 					if($valid->role == '10' || $valid->role == '20'){
-						redirect("dashboard");
+						redirect("home");
 					}else if($valid->role == '30'){
 						$this->session->set_flashdata('msg', 'Login Berhasil!');
 						$this->session->set_flashdata('cd', '1');

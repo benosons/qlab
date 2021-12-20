@@ -58,7 +58,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/registrasi/listregistrasi.html', $this->content);
 			// }
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -72,7 +72,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/registrasi/addregistrasi.html', $this->content);
 			// }
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -86,7 +86,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/tinjauan.html', $this->content);
 			// }
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -100,7 +100,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/listpengajuan.html', $this->content);
 			// }
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -114,7 +114,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/addpengajuan.html', $this->content);
 			// }
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -128,7 +128,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/listujilab.html', $this->content);
 			// }
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -142,7 +142,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/addlaporan.html', $this->content);
 			// }
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -156,7 +156,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/invoice.html', $this->content);
 			// }
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -173,7 +173,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/aduan.html', $this->content);
 			}
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -186,7 +186,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/aduanreply.html', $this->content);
 			}
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 
@@ -199,7 +199,7 @@ class View extends CI_Controller {
 				$this->twig->display('admin/aduanclose.html', $this->content);
 			}
 		}else{
-			redirect("dashboard");
+			redirect("home");
 		}
 	}
 

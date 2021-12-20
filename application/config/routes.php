@@ -56,6 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['^(logout|loginAdmin|Admin|register|cekusername)(/:any)?$'] = "auth/$0";
-$route['^(dashboard|saveUser|listuser|updateUser|formUser|listDataUser|deleteUser|dataDetailUser|loadkota|hitungAll|profile|loaduser|infodata|listdatabanner|listdatabanneruser|loadsetting|simpansetting|savebanner|updatebanner|deletebanner|updateprofile)(/:any)?$'] = "sys/$0";
+$route['^(home|saveUser|listuser|updateUser|formUser|listDataUser|deleteUser|dataDetailUser|loadkota|hitungAll|profile|loaduser|infodata|listdatabanner|listdatabanneruser|loadsetting|simpansetting|savebanner|updatebanner|deletebanner|updateprofile)(/:any)?$'] = "sys/$0";
 $route['^(savepengajuan|loadujilab)(/:any)?$'] = "json/$0";
 $route['^(listregistrasi|addregistrasi|listpengajuan|addpengajuan|listujilab|addlaporan|invoice|tinjauan)(/:any)?$'] = "view/$0";
